@@ -1,1 +1,6 @@
 cypress.config.js
+accessProfile.cy.js
+onLogout.cy.js
+failedLogin.cy.js
+login.test.js
+logout.test.js
