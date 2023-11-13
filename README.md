@@ -1,4 +1,5 @@
-##Project is configured with devDependencies:
+## Project is configured with devDependencies:
+
 "@babel/core": "^7.19.3",
 "@babel/preset-env": "^7.19.4",
 "cypress": "^13.5.0",
@@ -11,7 +12,9 @@
 "live-server": "^1.1.0",
 "prettier": "^3.0.3",
 "sass": "^1.69.5"
-##and dependencies:
+
+## And dependencies:
+
 "bootstrap": "^5.3.2",
 "bootstrap-dark-5": "^1.1.3"
 
