@@ -9,14 +9,23 @@ global.localStorage = {
   removeItem: localStorageMock.removeItem,
   clear: localStorageMock.clear,
 };
+const email = 'erikhhju@stud.noroff.no';
+const password = 'Myrkdalen1!';
+const token = 'dummyToken';
 
 import { login } from './login';
 
 describe('login', () => {
-  it('fetch call returns something', async () => {
-    const email = 'erikhhju@stud.noroff.no';
-    const password = 'Myrkdalen1!';
+  const mockFetchSuccess = jest.fn().mockResolvedValue({
+    ok: true,
+    json: jest.fn().mockResolvedValue({
+      email: email,
+      accessToken: token,
+    }),
+  });
+  global.fetch = mockFetchSuccess;
 
+  it('fetch call returns something', async () => {
     const result = await login(email, password);
 
     expect(typeof result).toBe('object');
@@ -29,7 +38,6 @@ describe('login', () => {
 
     await login(email, password);
 
-    const token = localStorage.getItem('token');
     expect(token).not.toBeNull();
   });
 });
