@@ -3,7 +3,12 @@ const localStorageMock = {
   setItem: jest.fn(),
   clear: jest.fn(),
 };
-global.localStorage = localStorageMock;
+global.localStorage = {
+  getItem: localStorageMock.getItem,
+  setItem: localStorageMock.setItem,
+  removeItem: localStorageMock.removeItem,
+  clear: localStorageMock.clear,
+};
 
 import { login } from './login';
 
